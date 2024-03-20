@@ -9,6 +9,7 @@ const getStore = ({ getStore, getActions, setStore }) => {
             people: null,
             planets: null,
             vehicles: null,
+            favorites: [],
 
             details: null
         },
@@ -46,7 +47,12 @@ const getStore = ({ getStore, getActions, setStore }) => {
                 .then(response => response.json())
                 .then(datos => setStore({ details: datos }))
             },
-            
+            addFavorites: (name, id ) => {
+                const store = getStore();
+                const newFavorite = { name, id};
+                const newFavorites = [...store.favorites, newFavorite];
+                setStore({ favorites: newFavorites });
+              },
             
         }
     }
