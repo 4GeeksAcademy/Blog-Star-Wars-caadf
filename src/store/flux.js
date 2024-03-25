@@ -29,8 +29,8 @@ const getStore = ({ getStore, getActions, setStore }) => {
                     .then(response => response.json())
                     .then(datos => setStore({ vehicles: datos }))
             },
-            getDetailsPeople: (url) => {
-                let urls = "https://swapi.dev/api/people/" + url
+            getDetailsPeople: (id) => {
+                const urls =  `https://swapi.dev/api/people/${id}/`
                 fetch(urls)
                 .then(response => response.json())
                 .then(datos => setStore({ details: datos }))

@@ -6,17 +6,18 @@ import { Context } from '../store/AppContext';
 const DetailedPeople = () => {
 
     const { store, actions } = useContext(Context)
-    let { url } = useParams()
+    const { id } = useParams();
 
     useEffect(() => {
-       actions.getDetailsPeople(url)
-       console.log(url)
-    }, [])
+        actions.getDetailsPeople(id)
+        /*  console.log(url) */
+    }, [id])
 
     return (
         <>
             <h1>{store?.details?.name}</h1>
-            
+            <h1>{store?.details?.height}</h1>
+          
 
         </>
     )
